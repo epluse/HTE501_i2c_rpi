@@ -7,7 +7,7 @@ Copyright 2021 E+E Elektronik Ges.m.b.H.
 Disclaimer:
 This application example is non-binding and does not claim to be complete with regard
 to configuration and equipment as well as all eventualities. The application example
-is intended to provide assistance with the EE894 sensor module design-in and is provided "as is".
+is intended to provide assistance with the HTE501 sensor module design-in and is provided "as is".
 You yourself are responsible for the proper operation of the products described.
 This application example does not release you from the obligation to handle the product safely
 during application, installation, operation and maintenance. By using this application example,
@@ -67,7 +67,7 @@ class HTE501():
         self.i2c_address = i2c_address
 
 
-    def gte_single_shot_temp_hum(self):
+    def get_single_shot_temp_hum(self):
         """Let the sensor take a measurement and return the temperature and humidity values."""
         i2c_response = self.wire_write_read([0x2C, 0x1B],6)
         if (i2c_response[2] == calc_crc8(i2c_response, 0, 2)) & (i2c_response[5] ==
@@ -97,7 +97,11 @@ class HTE501():
         """Get the calculated dewpoint from the last measurment"""
         i2c_response = self.wire_write_read([0xE0, 0x16],3)
         if i2c_response[2] == calc_crc8(i2c_response, 0, 2):
-            dewpoint = ((float)(i2c_response[0]) * 256 + i2c_response[1]) / 100
+            dewpoint = ((float)(i2c_response[0]) * 256 + i2c_response[1])
+            if dewpoint > 55536:
+                dewpoint = (dewpoint - 65536)/100
+            else :
+                dewpoint = dewpoint / 100
             return dewpoint
         else:
             raise Warning(get_status_string(2))
