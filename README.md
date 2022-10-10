@@ -20,7 +20,7 @@
 
 | Step |                                                                                                                                                             |
 |------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | Connect the HTE501 sensor module with Raspberry Pi according to the following scheme:<br>__Please note: For this connection scheme the I2C address is 0x40.__ <br>  [<img src="images/HTE501_rpi.png" width="50%"/>](images/HTE501_rpi.png)|
+| 1    | Connect the HTE501 sensor module with Raspberry Pi according to the following scheme:<br>__Please note: For this connection scheme the I2C address is 0x40.__ <br>  [<img src="images/HTE501_rpi.png" width="35%"/>](images/HTE501_rpi.png) [<img src="images/HTE501_rpi_breakoutboard.png" width="35%"/>](images/HTE501_rpi.png)|
 | 2    | Download and install the operating system (https://www.raspberrypi.org/software/operating-systems/).                                                            |
 | 3    | Boot Raspberry Pi and complete any first-time setup if necessary (find instructions online).                                                                |
 | 4    | Activate I2C communication:https://github.com/fivdi/i2c-bus/blob/master/doc/raspberry-pi-i2c.md                     |
@@ -32,16 +32,16 @@
 ### Example output
 
 ```shell
-pi@raspberrypi:~ $ python3 hte501_i2c_example.py
+pi@raspberrypi:~ $ python3 hte501_i2c_single_shot.py
 	temperature , relative humidity, dewpoint
 	23.41 °C , 50.64 %RH , 13,6 °C
 ```
 <br>
 
 
-### I2C addresse 
+### I2C address 
 The sensor‘s I2C base address is 0x40 (without R/W bit). Pins A1...A3 overrule the I2C base address.(for more information check the data sheet) <br>
-### No matching I2C addresse
+### No matching I2C address
 You have two ways to match the I2C addresses. The first would be to call the library in the Python file with the correct address. Or you can change the connections to the pins A1 to A3.
 <br> 
 <br>
