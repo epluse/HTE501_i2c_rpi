@@ -6,7 +6,8 @@
 ![HTE501](./images/HTE501.png) 
 
 
-[![button1](./images/learn-more.png)](https://www.epluse.com/products/humidity-instruments/humidity-sensing-elements/hte501/)   [![button2](./images/data-sheet.png)](https://www.epluse.com/fileadmin/data/product/hte501/datasheet_HTE501.pdf) 
+<!--[![button1](./images/learn-more.png)](https://www.epluse.com/products/humidity-instruments/humidity-sensing-elements/hte501/)   -->
+[![button2](./images/data-sheet.png)](https://www.epluse.com/fileadmin/data/product/hte501/datasheet_HTE501.pdf) 
 
 
 
